@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>iOS and Js</title>
+        <style type="text/css">
+            * {
+                font-size: 40px;
+            }
+        </style>
+    </head>
+    
+    <body>
+        
+        <div style="margin-top: 100px">
+            <h1>webkit inject function</h1><br/>
+            <div><input type="button" value="LoadScript" onclick="loadScript()"></div>
+            <br/>
+            <div><input type="button" value="DoFunction" onclick="doFunction()"></div>
+        </div>
+        <script type="text/javascript">
+        function loadScript() {
+            
+        window.webkit.messageHandlers.LoadScript.postMessage("require\('SecondViewController');\
+defineClass('ViewController',{\
+goSecondVC: function() {\
+var svc=SecondViewController.alloc().init();\
+self.presentViewController_animated_completion(svc,YES,null);\
+},});");
+            }
+        function doFunction() {
+            window.webkit.messageHandlers.DoFunction.postMessage({function:"goSecondVC",parameters:{}})
+        }
+        
+            </script>
+        <div style="margin-top: 100px">
+        from r4l.xyz
+        </div>
+
+    </body>
+</html>
