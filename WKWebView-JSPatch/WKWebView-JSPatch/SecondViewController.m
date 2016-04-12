@@ -16,6 +16,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    UILabel *titleLabel=[[UILabel alloc]initWithFrame:CGRectMake(50, 50, 100, 50)];
+    titleLabel.text=@"原生页面";
+    titleLabel.textColor=[UIColor whiteColor];
+    [self.view addSubview:titleLabel];
+    
     [self.view setBackgroundColor:[UIColor lightGrayColor]];
     UIButton *backButton=[[UIButton alloc]initWithFrame:CGRectMake(0, 100, 100, 50)];
     [backButton setBackgroundColor:[UIColor whiteColor]];
